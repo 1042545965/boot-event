@@ -26,8 +26,8 @@ public class OrderEventListener {
     @EventListener
     @Async
     public void asyncOrderDataChanged(BaseEvent<EventAsyncDto> event) {
-        // asyncDataChanged
         System.out.println("order-asyncOrderDataChanged : " + event);
+        // 异步抛出异常 不会影响主程序的运行 , 说明不需要在这里保证事务
         throw new RuntimeException("orderAsyncDataChanged");
     }
 }
